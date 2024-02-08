@@ -58,10 +58,10 @@
 
 
 #### test_data['pose'] (855,141) 1.2557,0.5165,-1.3564,...
-##### .bvh 
+##### .bvh - motion capture dataset
 
 #### test_data['audio'] (912000) 1.991e-4, 1.03e-1,...
-##### .npy
+##### .npy w
 
 #### test_data['facial'] (855,51) -0.71, 4.38,...
 ##### .json     
@@ -114,7 +114,28 @@
 
 #### test_data['sem'] (855) 0.1,0.1,0.7,....0.1
 ##### .txt
-    └── 
+	                start(s) end(s) duration(s) score descriptors
+    └── 01_beat_align	0	3.119	3.119	0.1
+	07_iconic_h	3.119	4.785	1.666	0.7	relaxing
+	01_beat_align	4.785	6.514	1.729	0.1
+	06_iconic_m	6.514	7.389	0.875	0.6	tired
+	01_beat_align	7.389	7.744	0.355	0.1
+	05_iconic_l	7.744	8.369	0.625	0.5	started
+	01_beat_align	8.369	13.494	5.125	0.1
+	10_metaphoric_h	13.494	15.358	1.864	1.0	Monday through Friday
+	01_beat_align	15.358	20.369	5.011	0.1
+	05_iconic_l	20.369	21.181	0.812	0.5	complain
+	01_beat_align	21.181	21.389	0.208	0.1
+	05_iconic_l	21.389	22.494	1.105	0.5	completing
+	01_beat_align	22.494	24.16	1.666	0.1
+	09_metaphoric_m	24.16	25.181	1.021	0.9	Okay
+	01_beat_align	25.181	29.389	4.208	0.1
+	02_deictic_l	29.389	30.494	1.105	0.2	friends
+	01_beat_align	30.494	35.16	4.666	0.1
+	09_metaphoric_m	35.16	36.181	1.021	0.9	sunshine
+	01_beat_align	36.181	43.202	7.021	0.1
+	05_iconic_l	43.202	44.844	1.642	0.5	working
+	01_beat_align	44.844	63.908	19.064	0.1
 
 
     
