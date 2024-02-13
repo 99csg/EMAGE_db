@@ -101,13 +101,14 @@
 
 #### 2-6. test_data['emo'] (855) 6,6,6,6,6,6,6,6,6,
 .csv  -emage==
-    └── 00_netural, 0, 63.908, 63.908, 0
+
+     00_netural, 0, 63.908, 63.908, 0
 
 #### 2-7. test_data['sem'] (855) 0.1,0.1,0.7,....0.1
 .txt -emage==
 
 	                start(s) end(s) duration(s) score descriptors
-    └── 01_beat_align	0	3.119	3.119	0.1
+    	01_beat_align	0	3.119	3.119	0.1
 	07_iconic_h	3.119	4.785	1.666	0.7	relaxing
 	01_beat_align	4.785	6.514	1.729	0.1
 	06_iconic_m	6.514	7.389	0.875	0.6	tired
