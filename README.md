@@ -133,6 +133,11 @@
 
 
 ### 3. model architecture(EMAGE)
+
+test_demo.py 
+input : audio, text
+output : motion 
+
 	  (module): MAGE_Transformer(
 	    (text_pre_encoder_face): Embedding(11195, 300)
 	    (text_encoder_face): Linear(in_features=300, out_features=256, bias=True)
