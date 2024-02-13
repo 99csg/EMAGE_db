@@ -138,6 +138,410 @@
 	01_beat_align	44.844	63.908	19.064	0.1
 
 
+
+### 3. model architecture 
+	  (module): MAGE_Transformer(
+	    (text_pre_encoder_face): Embedding(11195, 300)
+	    (text_encoder_face): Linear(in_features=300, out_features=256, bias=True)
+	    (text_pre_encoder_body): Embedding(11195, 300)
+	    (text_encoder_body): Linear(in_features=300, out_features=256, bias=True)
+	    (audio_pre_encoder_face): WavEncoder(
+	      (feat_extractor): Sequential(
+	        (0): BasicBlock(
+	          (conv1): Conv1d(2, 64, kernel_size=(15,), stride=(5,), padding=(1600,))
+	          (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(2, 64, kernel_size=(15,), stride=(5,), padding=(1600,))
+	            (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	        (1): BasicBlock(
+	          (conv1): Conv1d(64, 64, kernel_size=(15,), stride=(6,))
+	          (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(64, 64, kernel_size=(15,), stride=(6,))
+	            (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	        (2): BasicBlock(
+	          (conv1): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	        )
+	        (3): BasicBlock(
+	          (conv1): Conv1d(64, 128, kernel_size=(15,), stride=(6,))
+	          (bn1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(128, 128, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(64, 128, kernel_size=(15,), stride=(6,))
+	            (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	        (4): BasicBlock(
+	          (conv1): Conv1d(128, 128, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(128, 128, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	        )
+	        (5): BasicBlock(
+	          (conv1): Conv1d(128, 256, kernel_size=(15,), stride=(3,))
+	          (bn1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(256, 256, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(128, 256, kernel_size=(15,), stride=(3,))
+	            (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	      )
+	    )
+	    (audio_pre_encoder_body): WavEncoder(
+	      (feat_extractor): Sequential(
+	        (0): BasicBlock(
+	          (conv1): Conv1d(2, 64, kernel_size=(15,), stride=(5,), padding=(1600,))
+	          (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(2, 64, kernel_size=(15,), stride=(5,), padding=(1600,))
+	            (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	        (1): BasicBlock(
+	          (conv1): Conv1d(64, 64, kernel_size=(15,), stride=(6,))
+	          (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(64, 64, kernel_size=(15,), stride=(6,))
+	            (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	        (2): BasicBlock(
+	          (conv1): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(64, 64, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	        )
+	        (3): BasicBlock(
+	          (conv1): Conv1d(64, 128, kernel_size=(15,), stride=(6,))
+	          (bn1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(128, 128, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(64, 128, kernel_size=(15,), stride=(6,))
+	            (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	        (4): BasicBlock(
+	          (conv1): Conv1d(128, 128, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(128, 128, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	        )
+	        (5): BasicBlock(
+	          (conv1): Conv1d(128, 256, kernel_size=(15,), stride=(3,))
+	          (bn1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act1): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (conv2): Conv1d(256, 256, kernel_size=(15,), stride=(1,), padding=(7,))
+	          (bn2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          (act2): LeakyReLU(negative_slope=0.01, inplace=True)
+	          (downsample): Sequential(
+	            (0): Conv1d(128, 256, kernel_size=(15,), stride=(3,))
+	            (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+	          )
+	        )
+	      )
+	    )
+	    (at_attn_face): Linear(in_features=512, out_features=512, bias=True)
+	    (at_attn_body): Linear(in_features=512, out_features=512, bias=True)
+	    (motion_encoder): VQEncoderV6(
+	      (main): Sequential(
+	        (0): Conv1d(337, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): ResBlock(
+	          (model): Sequential(
+	            (0): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	            (2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	          )
+	        )
+	        (3): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	        (4): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (5): ResBlock(
+	          (model): Sequential(
+	            (0): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	            (2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	          )
+	        )
+	        (6): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	        (7): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (8): ResBlock(
+	          (model): Sequential(
+	            (0): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	            (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	            (2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+	          )
+	        )
+	      )
+	    )
+	    (feature2face): Linear(in_features=512, out_features=768, bias=True)
+	    (face2latent): Linear(in_features=768, out_features=256, bias=True)
+	    (transformer_de_layer): TransformerDecoderLayer(
+	      (self_attn): MultiheadAttention(
+	        (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	      )
+	      (multihead_attn): MultiheadAttention(
+	        (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	      )
+	      (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	      (dropout): Dropout(p=0.1, inplace=False)
+	      (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	      (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	      (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	      (norm3): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	      (dropout1): Dropout(p=0.1, inplace=False)
+	      (dropout2): Dropout(p=0.1, inplace=False)
+	      (dropout3): Dropout(p=0.1, inplace=False)
+	    )
+	    (face_decoder): TransformerDecoder(
+	      (layers): ModuleList(
+	        (0-3): 4 x TransformerDecoderLayer(
+	          (self_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (multihead_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	          (dropout): Dropout(p=0.1, inplace=False)
+	          (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	          (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm3): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (dropout1): Dropout(p=0.1, inplace=False)
+	          (dropout2): Dropout(p=0.1, inplace=False)
+	          (dropout3): Dropout(p=0.1, inplace=False)
+	        )
+	      )
+	    )
+	    (position_embeddings): PeriodicPositionalEncoding(
+	      (dropout): Dropout(p=0.1, inplace=False)
+	    )
+	    (transformer_en_layer): TransformerEncoderLayer(
+	      (self_attn): MultiheadAttention(
+	        (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	      )
+	      (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	      (dropout): Dropout(p=0.1, inplace=False)
+	      (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	      (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	      (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	      (dropout1): Dropout(p=0.1, inplace=False)
+	      (dropout2): Dropout(p=0.1, inplace=False)
+	    )
+	    (motion_self_encoder): TransformerEncoder(
+	      (layers): ModuleList(
+	        (0): TransformerEncoderLayer(
+	          (self_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	          (dropout): Dropout(p=0.1, inplace=False)
+	          (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	          (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (dropout1): Dropout(p=0.1, inplace=False)
+	          (dropout2): Dropout(p=0.1, inplace=False)
+	        )
+	      )
+	    )
+	    (audio_feature2motion): Linear(in_features=256, out_features=768, bias=True)
+	    (feature2motion): Linear(in_features=256, out_features=768, bias=True)
+	    (bodyhints_face): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=256, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=256, bias=True)
+	      )
+	    )
+	    (bodyhints_body): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=256, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=256, bias=True)
+	      )
+	    )
+	    (motion2latent_upper): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=768, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=768, bias=True)
+	      )
+	    )
+	    (motion2latent_hands): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=768, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=768, bias=True)
+	      )
+	    )
+	    (motion2latent_lower): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=768, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=768, bias=True)
+	      )
+	    )
+	    (wordhints_decoder): TransformerDecoder(
+	      (layers): ModuleList(
+	        (0-7): 8 x TransformerDecoderLayer(
+	          (self_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (multihead_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	          (dropout): Dropout(p=0.1, inplace=False)
+	          (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	          (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm3): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (dropout1): Dropout(p=0.1, inplace=False)
+	          (dropout2): Dropout(p=0.1, inplace=False)
+	          (dropout3): Dropout(p=0.1, inplace=False)
+	        )
+	      )
+	    )
+	    (upper_decoder): TransformerDecoder(
+	      (layers): ModuleList(
+	        (0): TransformerDecoderLayer(
+	          (self_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (multihead_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	          (dropout): Dropout(p=0.1, inplace=False)
+	          (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	          (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm3): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (dropout1): Dropout(p=0.1, inplace=False)
+	          (dropout2): Dropout(p=0.1, inplace=False)
+	          (dropout3): Dropout(p=0.1, inplace=False)
+	        )
+	      )
+	    )
+	    (hands_decoder): TransformerDecoder(
+	      (layers): ModuleList(
+	        (0): TransformerDecoderLayer(
+	          (self_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (multihead_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	          (dropout): Dropout(p=0.1, inplace=False)
+	          (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	          (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm3): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (dropout1): Dropout(p=0.1, inplace=False)
+	          (dropout2): Dropout(p=0.1, inplace=False)
+	          (dropout3): Dropout(p=0.1, inplace=False)
+	        )
+	      )
+	    )
+	    (lower_decoder): TransformerDecoder(
+	      (layers): ModuleList(
+	        (0): TransformerDecoderLayer(
+	          (self_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (multihead_attn): MultiheadAttention(
+	            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+	          )
+	          (linear1): Linear(in_features=768, out_features=1536, bias=True)
+	          (dropout): Dropout(p=0.1, inplace=False)
+	          (linear2): Linear(in_features=1536, out_features=768, bias=True)
+	          (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (norm3): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+	          (dropout1): Dropout(p=0.1, inplace=False)
+	          (dropout2): Dropout(p=0.1, inplace=False)
+	          (dropout3): Dropout(p=0.1, inplace=False)
+	        )
+	      )
+	    )
+	    (face_classifier): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=256, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=256, bias=True)
+	      )
+	    )
+	    (upper_classifier): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=256, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=256, bias=True)
+	      )
+	    )
+	    (hands_classifier): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=256, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=256, bias=True)
+	      )
+	    )
+	    (lower_classifier): MLP(
+	      (mlp): Sequential(
+	        (0): Linear(in_features=256, out_features=768, bias=True)
+	        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+	        (2): Linear(in_features=768, out_features=256, bias=True)
+	      )
+	    )
+	    (motion_down_upper): Linear(in_features=768, out_features=256, bias=True)
+	    (motion_down_hands): Linear(in_features=768, out_features=256, bias=True)
+	    (motion_down_lower): Linear(in_features=768, out_features=256, bias=True)
+	    (spearker_encoder_body): Embedding(25, 768)
+	    (spearker_encoder_face): Embedding(25, 768)
+	  )
+	)
+
     
     
                        
